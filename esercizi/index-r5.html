@@ -1,0 +1,283 @@
+<!-- Abbiamo bisogno di un sito web per un'agenzia di viaggi!
+
+In questa pagina aggiungerai destinazioni di posti che sogni di visitare in futuro.
+
+
+REGOLE
+
+Il progetto dev'essere caricato in una nuova repository su GitHub e linkata al tuo Docente.
+Puoi usare Google / StackOverflow, MA ti suggeriamo caldamente di riferirti principalmente alla documentazione fornita, 
+per non perderti in ricerche infruttuose per troppo tempo.
+
+Prova il tuo lavoro su varie risoluzioni di schermo, ingrandendo e rimpicciolendo la finestra, 
+e soprattutto usando i developer tools del browser che forniscono l'emulatore di svariati device sul quale potrai vedere esattamente come si comporta il tuo layout.
+
+!!! Inizia utilizzando i componenti preformati di Bootstrap4.6 per creare la tua pagina (modificali all'occorrenza utilizzando le utility classes di bootstrap: colori, spazi, margini, dimensioni etc...)
+Usa container > row > col in questo ordine per ottenere un layout responsive perfetto.
+
+EXERCISES:
+
+1) Implementa una navbar. Collega ogni sezione della pagina agli elementi del menu. 
+
+2) Aggiungi un logo alla navbar, una qualsiasi immagine.
+
+3) Aggiungi una sezione Jumbotron con il nome e il payoff dell'agenzia.
+
+4) Implementa la sezione "Offerta della settimana". Qui mostrerai 4 destinazioni.
+
+In questa sezione dovranno esserci:
+
+4 card per destinazioni per linea a schermo grande
+3 card per destinazioni per linea a schermo medio (tablet)
+2 card per destinazioni per linea a schermo piccolo (mobile)
+
+5) Implementa la sezione "Welcome Summer". Qui mostrerai 6 destinazioni al tuo utente.
+
+In questa sezione dovranno esserci:
+
+6 card per destinazioni per linea a schermo grande
+3 card per destinazioni per linea a schermo medio (tablet)
+2 card per destinazioni per linea a schermo piccolo (mobile)
+
+6) Implementa la sezione "Offerta del giorno". Qui avrai:
+
+66% dello spazio dedicato all'immagine del luogo di destinazione
+33% dedicato al nome, date, prezzo e breve descrizione del luogo
+
+7) Rendi invisibile la sezione "Offerta del giorno" su schermi mobile.
+
+8) Aggiungi nella sezione "Welcome Summer" un'ombra grande ad ogni card.
+
+9) Crea una sezione "Last Minute", in cui mostrerai le immagini delle destinazioni last minute sotto forma di card.
+
+10) Crea una sezione "Testimonial", dove l'utente potrà trovare alcuni feedback da utenti fittizi.
+
+11) Crea un footer con le informazioni dell'agenzia e un bottone "Contattaci".
+
+
+
+EXTRAS
+
+12) Crea un bottone vicino ad ogni sezione per collassarla e riaprirla se premuto.
+
+13) Crea la possibilità di contare il numero di "viaggi" presenti sulla pagina.
+
+14) Crea un modale con un messaggio e un campo email.
+
+15) Quando l'utente cliccherà su "Contattaci", fai in modo che il modale venga visualizzato.
+
+16) Crea una funzione che aggiunga un badge con la scritta "HOT" su ognuna delle offerte "Welcome Summer".
+
+17) Crea una funzione che rimuova tutte le "card" dalla pagina
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mina Viaggi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+      img.card-img-top {
+        width: 100%;
+        height: 14vw;
+        object-fit: cover;
+      }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+              <img src="./assets/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+              Mina Viaggi
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#offerta">Offerta della settimana</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#summer">Welcome Summer</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="wrapper flex-grow-1 mt-1">
+      <section>
+        <div class="jumbotron">
+          <h2 class="display-4">Mina Viaggi</h2>
+          <hr class="my-4">
+          <div class="content">
+              <div class="row">
+                  <div class="col col-lg-12">
+                      <div class="p-3">
+                          <h4>Scoprite luoghi fantastici!</h4>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </section>
+      <section id="offerta">
+        <div class="jumbotron">
+          <h2 class="display-4">Offerta della settimana</h2>
+          <hr class="my-4">
+          <div class="container">
+            <div class="row">
+              <div class="col col-sm-6 col-md-4 col-lg-3 mb-1">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Waikiki-Vacation.JPG" class="card-img-top" alt="..."> <!-- img dest -->
+                        <div class="card-body">
+                          <h5 class="card-title text-truncate">Honululu - Hawaai</h5> <!-- titolo dest -->
+                          <p class="card-text">10 notti</p> <!-- durata-->
+                          <h6>Prezzo 1200€</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col col-sm-6 col-md-4 col-lg-3 mb-1">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1200px-Skyscrapers_of_Shinjuku_2009_January.jpg" class="card-img-top" alt="..."> <!-- img dest -->
+                        <div class="card-body">
+                          <h5 class="card-title text-truncate">Tokyo - Giappone</h5> <!-- titolo dest -->
+                          <p class="card-text">7 notti</p> <!-- durata-->
+                          <h6>Prezzo 1400€</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col col-sm-6 col-md-4 col-lg-3 mb-1">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg/1280px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg" class="card-img-top" alt="..."> <!-- img dest -->
+                        <div class="card-body">
+                          <h5 class="card-title   text-truncate">New York - USA</h5> <!-- titolo dest -->
+                          <p class="card-text">8 notti</p> <!-- durata-->
+                          <h6>Prezzo 2000€</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col col-sm-6 col-md-4 col-lg-3 mb-1">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg/1920px-Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg" class="card-img-top" alt="..."> <!-- img dest -->
+                        <div class="card-body">
+                          <h5 class="card-title text-truncate">Sydeney - Austarlia</h5> <!-- titolo dest -->
+                          <p class="card-text">6 notti</p> <!-- durata-->
+                          <h6>Prezzo 1800€</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="summer">
+        <div class="jumbotron">
+          <h2 class="display-4">Welcome Summer</h2>
+          <hr class="my-4">
+          <div class="container">
+            <div class="row">
+              <div class="col col-sm-6 col-md-4 col-lg-2 mb-1">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Corf%C3%B9_paleokastitsa_-_panoramio.jpg?20161208120818" class="card-img-top" alt="..."> <!-- img dest -->
+                        <div class="card-body">
+                          <h5 class="card-title text-truncate">Corfù - Grecia</h5> <!-- titolo dest -->
+                          <p class="card-text">5 notti</p> <!-- durata-->
+                          <h6>Prezzo 1200€</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col col-sm-6 col-md-4 col-lg-2 mb-1">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/A%C3%A7ores_2010-07-19_%285047589237%29.jpg/1920px-A%C3%A7ores_2010-07-19_%285047589237%29.jpg" class="card-img-top" alt="..."> <!-- img dest -->
+                        <div class="card-body">
+                          <h5 class="card-title text-truncate">Azzorre</h5> <!-- titolo dest -->
+                          <p class="card-text">7 notti</p> <!-- durata-->
+                          <h6>Prezzo 1400€</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col col-sm-6 col-md-4 col-lg-2 mb-1">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Playa_de_Las_Teresitas_en_Santa_Cruz.jpg" class="card-img-top" alt="..."> <!-- img dest -->
+                        <div class="card-body">
+                          <h5 class="card-title   text-truncate">Canarie - Spagna</h5> <!-- titolo dest -->
+                          <p class="card-text">8 notti</p> <!-- durata-->
+                          <h6>Prezzo 2000€</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col col-sm-6 col-md-4 col-lg-2 mb-1">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Maiorca_-_Capo_Formentor.jpg/800px-Maiorca_-_Capo_Formentor.jpg" class="card-img-top" alt="..."> <!-- img dest -->
+                        <div class="card-body">
+                          <h5 class="card-title text-truncate">Maiorca - Spagna</h5> <!-- titolo dest -->
+                          <p class="card-text">6 notti</p> <!-- durata-->
+                          <h6>Prezzo 1800€</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col col-sm-6 col-md-4 col-lg-2 mb-1">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Positano_Sunset.JPG/1280px-Positano_Sunset.JPG" class="card-img-top" alt="..."> <!-- img dest -->
+                        <div class="card-body">
+                          <h5 class="card-title text-truncate">Positano - Italia</h5> <!-- titolo dest -->
+                          <p class="card-text">6 notti</p> <!-- durata-->
+                          <h6>Prezzo 1800€</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col col-sm-6 col-md-4 col-lg-2 mb-1">
+                <div class="card-deck">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Costa_Paradiso%2C_spiaggia_di_Li_Cossi_-_panoramio.jpg/1280px-Costa_Paradiso%2C_spiaggia_di_Li_Cossi_-_panoramio.jpg" class="card-img-top" alt="..."> <!-- img dest -->
+                        <div class="card-body">
+                          <h5 class="card-title text-truncate">Sardegna - Italia</h5> <!-- titolo dest -->
+                          <p class="card-text">6 notti</p> <!-- durata-->
+                          <h6>Prezzo 1800€</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-dark">
+        <div class="container text-center">
+          <span class="text-light">Mina Viaggi 2022&copy;</span>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>
